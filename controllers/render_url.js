@@ -43,7 +43,8 @@ exports.getURL = (req, res) =>{
   url_model.findOne({"index": req_id}, (err, data)=>{
     if(err) return;
     if(data){
-      res.send({"original_url":data.url, "short_url":data.index})
+      // res.send({"original_url":data.url, "short_url":data.index})
+      res.redirect(data.url)
     }
     else {
       res.send('Sorry, requested Short URL not found with us')
